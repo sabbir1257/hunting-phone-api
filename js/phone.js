@@ -35,7 +35,7 @@ const displayPhones = (phones, isShowAll) => {
           // console.log(phone);
           /*  2 create a div  */
           const phoneCard = document.createElement('div');
-          phoneCard.classList = `bg-gray-100 shadow-xl card p-4`;
+          phoneCard.classList = ` shadow-xl card bg-slate-100 p-4`;
           /*3 set inner html*/
           phoneCard.innerHTML = `
                <figure>
@@ -44,9 +44,8 @@ const displayPhones = (phones, isShowAll) => {
                <div class="card-body">
                     <h2 class="card-title">${phone.brand}</h2>
                     <p>${phone.phone_name}</p>
-                    <p>${phone.slug}</p>
-                    <div class="justify-end card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <div class="justify-center card-actions">
+                    <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
                </div>
           `
           /* 4 append child */
@@ -55,6 +54,16 @@ const displayPhones = (phones, isShowAll) => {
      /* hide loading spinner */
      toggleLoadingSpinner(false);
 }
+
+/*  */
+const handleShowDetail = async (id) => {
+     console.log('clicked show details', id)
+     /* load single phone data */
+     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+     const data = await res.json();
+     console.log(data);
+}
+
 
 /* handle search button */
      const handleSearch = (isShowAll) => {
