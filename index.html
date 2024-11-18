@@ -16,14 +16,30 @@
      <main class="container mx-auto mt-8">
 
           <section class="p-4 my-4 bg-gray-100">
-               <input id="search-field" type="text" placeholder="search..." class="w-full max-w-xs input input-bordered" />
+               <input id="search-field" type="text" placeholder="search..."
+                    class="w-full max-w-xs input input-bordered" />
                <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+
+               <!-- another search field -->
+               <input id="search-field2" type="text" placeholder="Search here"
+                    class="w-full max-w-xs input input-bordered" />
+               <button onclick="handleSearch2()" class="btn btn-primary">Search</button>
           </section>
+
+
 
           <!-- search result -->
           <section>
+               <!-- spinner or loader -->
+               <div id="loading-spinner" class="hidden text-center mt-52">
+                    <span class="loading loading-spinner loading-lg text-info"></span>
+               </div>
                <div id="phone-container" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 
+               </div>
+               <!-- show all button -->
+               <div id="show-all-container" class="hidden my-4 text-center">
+                    <button class="btn btn-secondary">Show all</button>
                </div>
           </section>
      </main>
